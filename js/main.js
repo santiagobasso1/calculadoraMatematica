@@ -75,10 +75,16 @@ function esPrimo(numero){
 
 function listarNumerosPrimos(n){
   let concatenados="";
+  let contadorPrimos=0;
+  let j=0;
   for (let i=0; i!=n;i++){
-  if (esPrimo(i)==true){
-    concatenados=concatenados+" "+i;
-  }
+    while(contadorPrimos!=n){
+      if (esPrimo(j)){
+        contadorPrimos++;
+        concatenados=concatenados+" "+j;
+      }
+      j++;
+    }
   }
   alert(concatenados);
 }
