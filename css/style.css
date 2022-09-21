@@ -1,0 +1,9 @@
+h1 span{
+    color: black;
+    background-color: yellow;
+}
+
+.centrar{
+    display: flex;
+    justify-content: center;
+}
