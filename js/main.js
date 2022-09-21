@@ -1,20 +1,23 @@
-
-function login(){
+const intentos=3;
+function login(salida){
   let i=0;
-  while (i!=3){
+  salida=false;
+  for (let i=1 ; i<=intentos;i++){
     let usuario=prompt("Ingrese su usuario (Santiago para true)");
     let contrasenia=prompt("Ingrese su contraseña (1234 para true)");
-    
     if ((usuario==("Santiago"))&&(contrasenia==("1234"))){ //No lo paso a uppercase porque ya que es un inicio de sesión debe ser igual hasta en las mayusculas
       alert("Buen dia "+ usuario);
+      salida=true;
+      return salida;
       break;
     }else{
-      alert("Ingrese un usuario valido");
-      i=i+1;
+      alert("Ingrese un usuario valido, le quedan "+(intentos-i)+" intentos");
+
     }
-    if (i==3){
+    if (i==intentos){
       alert("Ha alcanzado el limite de intentos");
       window.close(); //Para que se cierre la pagina ya que intentó demasiado (solo para simular)
+      return salida;
     }
   }
 }
@@ -34,32 +37,21 @@ function calculadoraControlada(){
   }
 }
 
-function suma (num1, num2){
-  return num1+num2;
-}
-function resta (num1, num2){
-  return num1-num2;
-}
-function multiplicacion (num1, num2){
-  return num1*num2;
-}
-function division (num1, num2){
-  return num1/num2;
-}
+
 
 function calculadora(num1,num2,operador){
   switch (operador){
     case "+":
-      return suma(num1,num2);
+      return num1+num2;
       break;
     case "-":
-      return resta(num1,num2);
+      return num1-num2;
       break;
     case "*":
-      return multiplicacion(num1,num2);
+      return num1*num2;
       break;
     case "/":
-      return division(num1,num2);
+      return num1/num2;
       break;
   }
 }
@@ -126,7 +118,7 @@ function perimetroCirculo(radio){
 function menu(){
   let opcion = prompt("Ingrese la opcion que desea \n 1-Calculadora de 2 numeros \n 2-Cantidad n de numeros primos \n 3-Area y perímetro de un circulo \n 0-Para salir esta ventana");
   //Repetimos hasta que se ingresa "ESC"
-  while(opcion.toUpperCase() != "0" ){
+  while(opcion != "0" ){
     switch (opcion) {
         case "1":
               calculadoraControlada();
@@ -143,15 +135,13 @@ function menu(){
     }
     opcion = prompt("Ingrese la opcion que desea \n 1-Calculadora de 2 numeros \n 2-Cantidad n de numeros primos \n 3-Area y perímetro de un circulo \n 0-para cerrar esta ventana");
   }
+  window.close();
 }
 
 //----------------------------------------------------------------------------------------
 //Programa Principal----------------------------------------------------------------------
 //----------------------------------------------------------------------------------------
-
-
-login();
-menu();
-
-
-
+let salida=false;
+if (login(salida)==true){
+  menu();
+}
