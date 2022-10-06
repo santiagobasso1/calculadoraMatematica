@@ -20,8 +20,8 @@ function login(salida){
   for (let i=1 ; i<=intentos;i++){
     let usuario=prompt("Ingrese su usuario (Santiago para true)");
     let contrasenia=prompt("Ingrese su contraseña (1234 para true)");
-    if ((usuario==(login1.nickname))&&(contrasenia==(login1.password))){ //No lo paso a uppercase porque ya que es un inicio de sesión debe ser igual hasta en las mayusculas
-      alert("Buen dia "+ usuario + "ustede está en calidad de "+ login1.rol);
+    if ((usuario==(login1.nickname))&&(contrasenia==(login1.password))||(usuario==(login2.nickname))&&(contrasenia==(login2.password))){ //No lo paso a uppercase porque ya que es un inicio de sesión debe ser igual hasta en las mayusculas
+      alert("Buen dia "+ usuario + " usted está en calidad de "+ login1.rol);
       salida=true;
       return salida;
       break;
@@ -136,7 +136,7 @@ function perimetroCirculo(radio){
 //----------------------------------------------------------------------------------------
 //Distancia entre 2 puntos----------------------------------------------------------------
 //----------------------------------------------------------------------------------------
-//Funcion constructora de puntos
+//Funcion constructora de puntos (OBJETOS)
 function Punto(x,y){
   this.x=x;
   this.y=y;
@@ -155,8 +155,23 @@ function distancia2Puntos(){
   resultado=calculoDistancia2Puntos(punto1,punto2);
   alert(resultado);
 }
-
-
+//----------------------------------------------------------------------------------------
+//Ceración array numeros------------------------------------------------------------------
+//----------------------------------------------------------------------------------------
+function crearArray(){
+  const arrayNumeros=[];
+  let ingreso=prompt("Ingrese el primer numero, para salir ingrese EXIT");
+  while (ingreso.toUpperCase()!="EXIT") {
+    if (!isNaN(ingreso) && !ingreso.toUpperCase()!="EXIT"){
+      arrayNumeros.push(parseInt(ingreso));
+    }
+    else{
+      alert("Ingrese solamente numeros");
+    }
+    ingreso=prompt("Ingrese otro numero, para salir ingrese EXIT");
+  }
+  return arrayNumeros;
+}
 //----------------------------------------------------------------------------------------
 //Productoria con array-------------------------------------------------------------------
 //----------------------------------------------------------------------------------------
@@ -167,30 +182,81 @@ function calculoProductoria(arrayNumeros){
   }
   return productoria;
 }
-function productoria(){
-  const arrayNumeros=[];
-  let ingreso=prompt("Ingrese un valor a multiplicar, para salir ingrese EXIT");
-  while (ingreso.toUpperCase()!="EXIT") {
-    if (!isNaN(ingreso) && !ingreso.toUpperCase()!="EXIT"){
-      arrayNumeros.push(parseInt(ingreso));
-    }
-    else{
-      alert("Ingrese solamente numeros");
-    }
-    ingreso=prompt("Ingrese un valor a multiplicar, para salir ingrese EXIT");
-  }
-  alert(calculoProductoria(arrayNumeros));
+function productoriaMayorMenorPromArray(){
+  const arrayNumeros=crearArray();
+  alert("El resultado de la productoria es: "+calculoProductoria(arrayNumeros));
+  mayorMenorPromedioArray(arrayNumeros);
 }
 
 
 
+//----------------------------------------------------------------------------------------
+//Mayor menor promedio--------------------------------------------------------------------
+//----------------------------------------------------------------------------------------
+function calcularMayorArray(arrayNumeros){
+  let mayor=0;
+  for (let i = 0; i<arrayNumeros.length; i++){
+    if (arrayNumeros[i]>mayor){
+      mayor=arrayNumeros[i];
+    }
+  }
+  return mayor;
+}
+
+function calcularMenorArray(arrayNumeros){
+  let menor=9000000000;
+  for (let i = 0; i<arrayNumeros.length; i++){
+    if (arrayNumeros[i]<menor){
+      menor=arrayNumeros[i];
+    }
+  }
+  return menor;
+}
+
+function calcularPromedioArray(arrayNumeros){
+  let sumatoria=0;
+  for (let i = 0; i<arrayNumeros.length; i++){
+      sumatoria=sumatoria+arrayNumeros[i];
+  }
+  return sumatoria/arrayNumeros.length;
+}
+
+function mayorMenorPromedioArray(arrayNumeros){
+  alert("El mayor de los numeros ingresados es: "+ calcularMayorArray(arrayNumeros));
+  alert("El menor de los numeros ingresados es: " + calcularMenorArray(arrayNumeros));
+  alert("El promedio de los numeros ingresados es: "+ calcularPromedioArray(arrayNumeros));
+}
+//----------------------------------------------------------------------------------------
+//Ingrese n numeros en cualquier orden y que se listen ordenados--------------------------
+//----------------------------------------------------------------------------------------
+function ordenarArrayNumeros(){
+  const arrayNumeros=crearArray();
+  const arrayNumerosOrdenado=arrayNumeros.sort((x,y)=>x>y ? 1 : -1)
+  alert(arrayNumerosOrdenado);
+}
+//----------------------------------------------------------------------------------------
+//Ingrese n numeros y que liste solo los mayores a x(ORDEN SUPERIOR)----------------------
+//----------------------------------------------------------------------------------------
+function mayoresQueX(){
+  let x=10;
+  const arrayNumeros=crearArray();
+  const resultado=arrayNumeros.filter(item => item>x);
+  if (resultado.length!=0) {
+  alert("Los valores ingresados mayores a 10 son: "+resultado);
+  }
+  else{
+    alert("Todos los valores ingresados son mejores o iguales a 10");
+  }
+  
+}
 
 //----------------------------------------------------------------------------------------
 //Menu------------------------------------------------------------------------------------
 //----------------------------------------------------------------------------------------
 
 function menu(){
-  let opcion = prompt("Ingrese la opcion que desea \n 1-Calculadora de 2 numeros \n 2-Cantidad n de numeros primos \n 3-Area y perímetro de un circulo \n 4-Calcular distancia entre 2 puntos \n 5-Ingresar n numeros y multiplicarlos entre si \n 0-Para salir esta ventana");
+  let mensajeMenu=("Ingrese la opcion que desea \n 1-Calculadora de 2 numeros \n 2-Cantidad n de numeros primos \n 3-Area y perímetro de un circulo \n 4-Calcular distancia entre 2 puntos \n 5-Ingresar n numeros y multiplicarlos entre si, saber maximo minimo y promedio de estos \n 6-Ingrese n numeros y mostrar solo los mayores a 10 \n 7-Ingresar n numeros desordenados y que se ordenen  \n 0-Para salir esta ventana");
+  let opcion = prompt(mensajeMenu);
   //Repetimos hasta que se ingresa "ESC"
   while(opcion != "0" ){
     switch (opcion) {
@@ -207,13 +273,19 @@ function menu(){
             distancia2Puntos();
             break;    
           case "5":
-            productoria();
+            productoriaMayorMenorPromArray();
+            break;  
+          case "6":
+            mayoresQueX();
+            break;  
+          case "7":
+            ordenarArrayNumeros();
             break;  
         default:
             alert("Ingrese una opción valida")
             break;
     }
-    opcion = prompt("Ingrese la opcion que desea \n 1-Calculadora de 2 numeros \n 2-Cantidad n de numeros primos \n 3-Area y perímetro de un circulo \n 0-para cerrar esta ventana");
+    opcion = prompt(mensajeMenu);
   }
   window.close();
 }
@@ -225,62 +297,4 @@ function menu(){
 // if (login(salida)==true){
 //   menu();
 // }
-
 menu();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//OBJETOS
-// const persona={
-//   nombre:"Santiago",
-//   apellido:"Basso",
-//   edad:23,
-// };
-
-// function auto(modelo,marca,anio,color){
-//   this.modelo = modelo;
-//   this.marca = marca;
-//   this.anio = anio;
-//   this.color = color;
-//   this.arrancar=function(){
-//     console.log("Encendido");
-//   }
-// }
-
-// const auto1 = new auto("golf","audi","2010","black"); 
-
-// console.log(auto1);
-// auto1.arrancar();
-
-
-class Producto{
-  constructor(nombre,precio,stock){
-    this.nombre=nombre;
-    this.precio=parseInt(precio);
-    this.stock=stock;
-    this.sumarIva= ()=>{
-      this.precio=this.precio*1.21;
-    }
-  }
-}
