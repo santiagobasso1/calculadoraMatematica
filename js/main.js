@@ -13,6 +13,9 @@ const login2 ={
   rol: "Usuario Basico",
 }
 
+//----------------------------------------------------------------------------------------
+//LOGIN-----------------------------------------------------------------------------------
+//----------------------------------------------------------------------------------------
 
 function login(salida){
   let i=0;
@@ -117,7 +120,7 @@ function areaYPerimetroCirculo(){
   let radio=parseFloat(prompt("Ingrese el radio de la circunferencia"));
   if (radio>0){
   let unidad=prompt("Ingrese la unidad de medida utilizada");
-  alert("El area de la circunferencia es: "+areaCirculo(radio).toFixed(3)+" "+unidad+"²\nEl parímetro de la circunferencia es: "+perimetroCirculo(radio).toFixed(3)+" "+unidad);
+  alert("El area de la circunferencia es: "+areaCirculo(radio).toFixed(3)+" "+unidad+"²\nEl perímetro de la circunferencia es: "+perimetroCirculo(radio).toFixed(3)+" "+unidad);
   }
   else{
     alert("Ingrese un NUMERO mayor que 0");
@@ -234,8 +237,9 @@ function ordenarArrayNumeros(){
   const arrayNumerosOrdenado=arrayNumeros.sort((x,y)=>x>y ? 1 : -1)
   alert(arrayNumerosOrdenado);
 }
+
 //----------------------------------------------------------------------------------------
-//Ingrese n numeros y que liste solo los mayores a x(ORDEN SUPERIOR)----------------------
+//Ingrese n numeros y que liste solo los mayores a x--------------------------------------
 //----------------------------------------------------------------------------------------
 function mayoresQueX(){
   let x=10;
@@ -247,15 +251,25 @@ function mayoresQueX(){
   else{
     alert("Todos los valores ingresados son mejores o iguales a 10");
   }
-  
 }
+
+//----------------------------------------------------------------------------------------
+//Ingrese n numeros, encuentre el numero que desea en que posición está------------------- (busqueda)
+//----------------------------------------------------------------------------------------
+function buscarPosNunmero(){
+  const arrayNumeros=crearArray();
+  let x = parseInt(prompt("Ingrese el valor que desea saber su posición"));
+  alert(arrayNumeros.indexOf(x));
+}
+
+
 
 //----------------------------------------------------------------------------------------
 //Menu------------------------------------------------------------------------------------
 //----------------------------------------------------------------------------------------
 
 function menu(){
-  let mensajeMenu=("Ingrese la opcion que desea \n 1-Calculadora de 2 numeros \n 2-Cantidad n de numeros primos \n 3-Area y perímetro de un circulo \n 4-Calcular distancia entre 2 puntos \n 5-Ingresar n numeros y multiplicarlos entre si, saber maximo minimo y promedio de estos \n 6-Ingrese n numeros y mostrar solo los mayores a 10 \n 7-Ingresar n numeros desordenados y que se ordenen  \n 0-Para salir esta ventana");
+  let mensajeMenu=("Ingrese la opcion que desea \n 1-Calculadora de 2 numeros \n 2-Cantidad n de numeros primos \n 3-Area y perímetro de un circulo \n 4-Calcular distancia entre 2 puntos \n 5-Ingresar n numeros y multiplicarlos entre si, saber maximo minimo y promedio de estos \n 6-Ingrese n numeros y mostrar solo los mayores a 10 \n 7-Ingresar n numeros desordenados y que se ordenen \n 8-Ingrese n numeros y busque la posición de uno específico \n 0-Para salir esta ventana");
   let opcion = prompt(mensajeMenu);
   //Repetimos hasta que se ingresa "ESC"
   while(opcion != "0" ){
@@ -281,6 +295,9 @@ function menu(){
           case "7":
             ordenarArrayNumeros();
             break;  
+          case "8":
+            buscarPosNunmero();
+            break; 
         default:
             alert("Ingrese una opción valida")
             break;
@@ -293,8 +310,7 @@ function menu(){
 //----------------------------------------------------------------------------------------
 //Programa Principal----------------------------------------------------------------------
 //----------------------------------------------------------------------------------------
-// let salida=false;
-// if (login(salida)==true){
-//   menu();
-// }
-menu();
+let salida=false;
+if (login(salida)==true){
+  menu();
+}
