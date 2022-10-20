@@ -5,6 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Santiago Basso js</title>
+        <link rel="stylesheet" href="css/bootstrap.css">
         <link rel="stylesheet" href="css/style.css">
         <!-- Etiquetas para que no use el cache de git y se actualice de una -->
         <meta http-equiv='cache-control' content='no-cache'> 
@@ -13,8 +14,24 @@
     </head>
     <body>
         <div class="centrar">
-            <h1 class="prueba"><span>Proyecto JavaScript</span></h1>
+            <span class="titulo">3RA ENTREGA JAVASCRIPT</span>
         </div>
+        
+        <form class="login">
+            <div class="mb-3">
+              <label for="usuario" class="form-label">Usuario</label>
+              <input type="email" class="form-control" id="usuario">
+              <div id="ayudaIngresoUsuario" class="form-text">Ingrese Santiago para true</div>
+            </div>
+            <div class="mb-3">
+              <label for="password" class="form-label">Contraseña</label>
+              <input type="password" class="form-control" id="password">
+              <div id="ayudaIngresoContraseña" class="form-text">Ingrese 1234 para true</div>
+
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
         <script src="js/main.js"></script>
+        <script src="js/bootstrap.js"></script>
     </body>
 </html>

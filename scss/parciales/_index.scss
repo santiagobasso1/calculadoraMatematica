@@ -1,0 +1,19 @@
+.titulo{
+    color: black;
+    background-color: yellow;
+    font-size: xx-large;
+}
+
+.centrar{
+    display: flex;
+    justify-content: center;
+}
+
+.login{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding-left: 20%;
+    padding-right: 20%;
+}
+
