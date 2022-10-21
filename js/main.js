@@ -1,4 +1,4 @@
-const intentos=3;
+const intentos=2;
 
 //USUARIOS
 const login1 ={
@@ -16,252 +16,38 @@ const login2 ={
 //----------------------------------------------------------------------------------------
 //LOGIN-----------------------------------------------------------------------------------
 //----------------------------------------------------------------------------------------
+let intentosActuales=0;
+function login(){
 
-function login(salida){
-  let i=0;
   salida=false;
-  for (let i=1 ; i<=intentos;i++){
-    let usuario=prompt("Ingrese su usuario (Santiago para true)");
-    let contrasenia=prompt("Ingrese su contraseña (1234 para true)");
+    let usuario=document.getElementById("user").value;
+    let contrasenia=document.getElementById("password").value;
     if ((usuario==(login1.nickname))&&(contrasenia==(login1.password))||(usuario==(login2.nickname))&&(contrasenia==(login2.password))){ //No lo paso a uppercase porque ya que es un inicio de sesión debe ser igual hasta en las mayusculas
       alert("Buen dia "+ usuario + " usted está en calidad de "+ login1.rol);
       salida=true;
       return salida;
-      break;
     }else{
-      alert("Ingrese un usuario valido, le quedan "+(intentos-i)+" intentos");
+      alert("Ingrese un usuario valido, le quedan "+(intentos-intentosActuales)+" intentos");
+      intentosActuales++;
 
     }
-    if (i==intentos){
+    if (intentosActuales==intentos+1){
       alert("Ha alcanzado el limite de intentos");
-      window.close(); //Para que se cierre la pagina ya que intentó demasiado (solo para simular)
+      window.close();
       return salida;
-    }
   }
 }
-
-//----------------------------------------------------------------------------------------
-//CALCULADORA-----------------------------------------------------------------------------
-//----------------------------------------------------------------------------------------
-function calculadoraControlada(){
-  let num1=parseFloat(prompt("Ingrese el primer valor"));
-  let operador=prompt("Ingrese el operador (+,-,*,/)");
-  let num2=parseFloat(prompt("Ingrese el segundo valor"));
-  if (operador=="/" && num2==0){
-    alert("No está definida la división por 0");
-  }
-  else{
-  alert("El valor de su operación es: "+calculadora(num1,num2,operador));
-  }
-}
-
-
-
-function calculadora(num1,num2,operador){
-  switch (operador){
-    case "+":
-      return num1+num2;
-      break;
-    case "-":
-      return num1-num2;
-      break;
-    case "*":
-      return num1*num2;
-      break;
-    case "/":
-      return num1/num2;
-      break;
-  }
-}
-
-//----------------------------------------------------------------------------------------
-//NUMEROS PRIMOS--------------------------------------------------------------------------
-//----------------------------------------------------------------------------------------
-function esPrimo(numero){
-  if (numero!=0){
-    for (let i = 2; i < numero; i++) {
-      if (numero % i === 0) {
-        return false;
+function iniciarPrograma(){
+  const botonLogin=document.querySelector("#btnLogin");
+  botonLogin.addEventListener("click",(e)=>{
+    e.preventDefault();
+    if (intentosActuales!=3){
+      if (login()==true){
+        window.open("../pages/menuOpciones.html")
       }
     }
-    return numero !== 1;
-  }
-  else{
-    return false;
-  }
+  })
 }
-
-function listarNumerosPrimos(n){
-  let concatenados="";
-  let contadorPrimos=0;
-  let j=0;
-  for (let i=0; i!=n;i++){
-    while(contadorPrimos!=n){
-      if (esPrimo(j)){
-        contadorPrimos++;
-        concatenados=concatenados+" "+j;
-      }
-      j++;
-    }
-  }
-  alert(concatenados);
-}
-
-function numerosPrimos(){
-  let n = prompt("Ingrese cuantos numeros primos desea ver");
-  listarNumerosPrimos(n);
-}
-
-
-//----------------------------------------------------------------------------------------
-//ÁREA CIRCULO----------------------------------------------------------------------------
-//----------------------------------------------------------------------------------------
-function areaYPerimetroCirculo(){
-  let radio=parseFloat(prompt("Ingrese el radio de la circunferencia"));
-  if (radio>0){
-  let unidad=prompt("Ingrese la unidad de medida utilizada");
-  alert("El area de la circunferencia es: "+areaCirculo(radio).toFixed(3)+" "+unidad+"²\nEl perímetro de la circunferencia es: "+perimetroCirculo(radio).toFixed(3)+" "+unidad);
-  }
-  else{
-    alert("Ingrese un NUMERO mayor que 0");
-  }
-}
-
-function areaCirculo(radio){
-  return Math.pow(radio,2)*Math.PI;
-}
-
-function perimetroCirculo(radio){
-  return 2*Math.PI*radio
-}
-
-
-//----------------------------------------------------------------------------------------
-//Distancia entre 2 puntos----------------------------------------------------------------
-//----------------------------------------------------------------------------------------
-//Funcion constructora de puntos (OBJETOS)
-function Punto(x,y){
-  this.x=x;
-  this.y=y;
-}
-function calculoDistancia2Puntos(punto1, punto2){
-  return Math.sqrt(Math.pow((punto2.x-punto1.x),2)+Math.pow((punto2.y-punto1.y),2))
-}
-
-function distancia2Puntos(){
-  x1=prompt("Ingrese el valor de x del punto 1");
-  y1=prompt("Ingrese el valor de y del punto 1");
-  x2=prompt("Ingrese el valor de x del punto 2");
-  y2=prompt("Ingrese el valor de y del punto 2");
-  const punto1=new Punto(x1,y1);
-  const punto2=new Punto(x2,y2);
-  resultado=calculoDistancia2Puntos(punto1,punto2);
-  alert(resultado);
-}
-//----------------------------------------------------------------------------------------
-//Ceración array numeros------------------------------------------------------------------
-//----------------------------------------------------------------------------------------
-function crearArray(){
-  const arrayNumeros=[];
-  let ingreso=prompt("Ingrese el primer numero, para salir ingrese EXIT");
-  while (ingreso.toUpperCase()!="EXIT") {
-    if (!isNaN(ingreso) && !ingreso.toUpperCase()!="EXIT"){
-      arrayNumeros.push(parseInt(ingreso));
-    }
-    else{
-      alert("Ingrese solamente numeros");
-    }
-    ingreso=prompt("Ingrese otro numero, para salir ingrese EXIT");
-  }
-  return arrayNumeros;
-}
-//----------------------------------------------------------------------------------------
-//Productoria con array-------------------------------------------------------------------
-//----------------------------------------------------------------------------------------
-function calculoProductoria(arrayNumeros){
-  let productoria=1;
-  for (let i = 0; i<arrayNumeros.length; i++){
-    productoria=productoria*arrayNumeros[i];
-  }
-  return productoria;
-}
-function productoriaMayorMenorPromArray(){
-  const arrayNumeros=crearArray();
-  alert("El resultado de la productoria es: "+calculoProductoria(arrayNumeros));
-  mayorMenorPromedioArray(arrayNumeros);
-}
-
-
-
-//----------------------------------------------------------------------------------------
-//Mayor menor promedio--------------------------------------------------------------------
-//----------------------------------------------------------------------------------------
-function calcularMayorArray(arrayNumeros){
-  let mayor=0;
-  for (let i = 0; i<arrayNumeros.length; i++){
-    if (arrayNumeros[i]>mayor){
-      mayor=arrayNumeros[i];
-    }
-  }
-  return mayor;
-}
-
-function calcularMenorArray(arrayNumeros){
-  let menor=9000000000;
-  for (let i = 0; i<arrayNumeros.length; i++){
-    if (arrayNumeros[i]<menor){
-      menor=arrayNumeros[i];
-    }
-  }
-  return menor;
-}
-
-function calcularPromedioArray(arrayNumeros){
-  let sumatoria=0;
-  for (let i = 0; i<arrayNumeros.length; i++){
-      sumatoria=sumatoria+arrayNumeros[i];
-  }
-  return sumatoria/arrayNumeros.length;
-}
-
-function mayorMenorPromedioArray(arrayNumeros){
-  alert("El mayor de los numeros ingresados es: "+ calcularMayorArray(arrayNumeros));
-  alert("El menor de los numeros ingresados es: " + calcularMenorArray(arrayNumeros));
-  alert("El promedio de los numeros ingresados es: "+ calcularPromedioArray(arrayNumeros));
-}
-//----------------------------------------------------------------------------------------
-//Ingrese n numeros en cualquier orden y que se listen ordenados--------------------------
-//----------------------------------------------------------------------------------------
-function ordenarArrayNumeros(){
-  const arrayNumeros=crearArray();
-  const arrayNumerosOrdenado=arrayNumeros.sort((x,y)=>x>y ? 1 : -1)
-  alert(arrayNumerosOrdenado);
-}
-
-//----------------------------------------------------------------------------------------
-//Ingrese n numeros y que liste solo los mayores a x--------------------------------------
-//----------------------------------------------------------------------------------------
-function mayoresQueX(){
-  let x=10;
-  const arrayNumeros=crearArray();
-  const resultado=arrayNumeros.filter(item => item>x);
-  if (resultado.length!=0) {
-  alert("Los valores ingresados mayores a 10 son: "+resultado);
-  }
-  else{
-    alert("Todos los valores ingresados son mejores o iguales a 10");
-  }
-}
-
-//----------------------------------------------------------------------------------------
-//Ingrese n numeros, encuentre el numero que desea en que posición está------------------- (busqueda)
-//----------------------------------------------------------------------------------------
-function buscarPosNunmero(){
-  const arrayNumeros=crearArray();
-  let x = parseInt(prompt("Ingrese el valor que desea saber su posición"));
-  alert(arrayNumeros.indexOf(x));
-}
-
 
 
 //----------------------------------------------------------------------------------------
@@ -317,12 +103,25 @@ function menu(){
 
 
 //DOM
-const div = document.getElementById('1'),
-ache1=document.getElementsByTagName('h1');
+// const div = document.getElementById('1'),
+// ache1=document.getElementsByTagName('h1');
 
-console.log(ache1[1]);
+// console.log(ache1[1]);
 
-ache1[1].innerText='Chorizo';
+// ache1[1].innerText='Chorizo';
 
 // div.className='Nombre De la clase a agrewgarle a ese div o elemento que se desee';
 
+
+// botonLogin.addEventListener("click",()=>{
+//   console.log("Chorizo");
+// })
+
+// botonLogin.onclick =()=>{
+//   console.log('chorizo');
+// }
+
+
+iniciarPrograma();
+
+console.log(document);
