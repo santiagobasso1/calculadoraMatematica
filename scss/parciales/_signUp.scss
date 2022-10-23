@@ -1,15 +1,5 @@
-.titulo{
-    color: black;
-    background-color: yellow;
-    font-size: xx-large;
-}
 
-.centrar{
-    display: flex;
-    justify-content: center;
-}
-
-.login{
+.signUpp{
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -18,11 +8,10 @@
     padding-top: 10%;
 }
 
-.tituloLogin{
+.tituloRegister{
     position: absolute;
     top: 1%;
     padding: 10px;
-    left: 46.5%;
+    left: 45%;
     color: rgb(213, 109, 5);
-
 }

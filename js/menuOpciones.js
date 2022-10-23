@@ -4,36 +4,42 @@
 //----------------------------------------------------------------------------------------
 
 function calculadoraControlada(){
-    let num1=parseFloat(document.getElementById("numero1Calculadora").value);
-    let operador=document.getElementById("operadorCalculadora").value;
-    let num2=parseFloat(document.getElementById("numero2Calculadora").value);
-    if (operador=="/" && num2==0){
-      alert("No está definida la división por 0");
+    let num1=document.getElementById('numero1Calculadora');
+    let operador=document.getElementById('operadorCalculadora');
+    let num2=document.getElementById('numero2Calculadora');
+    const mensaje=document.getElementById('resultadoCalculadora');
+    if (num1.value!=''&&num2.value!=''&&operador!=''){
+      if (operador.value=='/' && parseFloat(num2.value)==0){
+        mensaje.innerText='No está definida la división por 0';
+      }
+      else{
+        mensaje.innerText='El valor de su operación es: '+calculadora(parseFloat(num1.value),parseFloat(num2.value),operador.value);
+      }
+    }else{
+        mensaje.innerText='Debe ingresar los 3 valores para operar';
     }
-    else{
-    alert("El valor de su operación es: "+calculadora(num1,num2,operador));
-    }
+
   }
   
   function calculadora(num1,num2,operador){
     switch (operador){
-      case "+":
+      case '+':
         return num1+num2;
         break;
-      case "-":
+      case '-':
         return num1-num2;
         break;
-      case "*":
+      case '*':
         return num1*num2;
         break;
-      case "/":
+      case '/':
         return num1/num2;
         break;
     }
   }
 function llamarCalculadora(){
-    let botonCalculadora=document.getElementById("btnCalculadora");
-    botonCalculadora.addEventListener("click",(e)=>{
+    let botonCalculadora=document.getElementById('btnCalculadora');
+    botonCalculadora.addEventListener('click',(e)=>{
         e.preventDefault();
         calculadoraControlada();
     })
@@ -59,29 +65,36 @@ function esPrimo(numero){
   }
   
 function listarNumerosPrimos(n){
-    let concatenados="";
+    let concatenados='';
     let contadorPrimos=0;
     let j=0;
+    const mensaje=document.getElementById('resultadosPrimos');
     for (let i=0; i!=n;i++){
       while(contadorPrimos!=n){
         if (esPrimo(j)){
           contadorPrimos++;
-          concatenados=concatenados+" "+j;
+          concatenados=concatenados+' '+j;
         }
         j++;
       }
     }
-    alert(concatenados);
+    mensaje.innerText=concatenados;
 }
   
 function numerosPrimos(){
-    let n = parseInt(document.getElementById("numerosPrimosn").value);
-    listarNumerosPrimos(n);
+    const mensaje=document.getElementById('resultadosPrimos');
+    let inputPrimos = document.getElementById('numerosPrimosn');
+    if (inputPrimos.value!=''){
+      let n=parseInt(inputPrimos.value);
+      listarNumerosPrimos(n);
+    }else{
+      mensaje.innerText='Ingrese un valor valido';
+    }
 }
 
 function llamarNumerosPrimos(){
-    let botonPrimos=document.getElementById("btnPrimos");
-    botonPrimos.addEventListener("click",(e)=>{
+    let botonPrimos=document.getElementById('btnPrimos');
+    botonPrimos.addEventListener('click',(e)=>{
         e.preventDefault();
         numerosPrimos();
     })
@@ -93,13 +106,14 @@ function llamarNumerosPrimos(){
 //ÁREA CIRCULO----------------------------------------------------------------------------
 //----------------------------------------------------------------------------------------
 function areaYPerimetroCirculo(){
-    let radio=parseFloat(document.getElementById("radioCirculo").value);
+  const mensaje=document.getElementById('resultadoAyPCirculo');
+    let radio=parseFloat(document.getElementById('radioCirculo').value);
     if (radio>0){
-    let unidad=document.getElementById("unidadCirculo").value;
-    alert("El area de la circunferencia es: "+areaCirculo(radio).toFixed(3)+" "+unidad+"²\nEl perímetro de la circunferencia es: "+perimetroCirculo(radio).toFixed(3)+" "+unidad);
+    let unidad=document.getElementById('unidadCirculo').value;
+    mensaje.innerText='El area de la circunferencia es: '+areaCirculo(radio).toFixed(3)+' '+unidad+'²\nEl perímetro de la circunferencia es: '+perimetroCirculo(radio).toFixed(3)+' '+unidad;
     }
     else{
-      alert("Ingrese un NUMERO mayor que 0");
+      mensaje.innerText='Ingrese un NUMERO mayor que 0';
     }
 }
   
@@ -112,8 +126,8 @@ function perimetroCirculo(radio){
 }
 
 function llamarAyPCirculo(){
-    let botonCircunferencia=document.getElementById("btnCircunferencia");
-    botonCircunferencia.addEventListener("click",(e)=>{
+    let botonCircunferencia=document.getElementById('btnCircunferencia');
+    botonCircunferencia.addEventListener('click',(e)=>{
         e.preventDefault();
         areaYPerimetroCirculo();
     })
@@ -132,19 +146,25 @@ function Punto(x,y){
   }
   
   function distancia2Puntos(){
-    x1=document.getElementById("x1Punto").value;
-    y1=document.getElementById("y1Punto").value;
-    x2=document.getElementById("x2Punto").value;
-    y2=document.getElementById("y2Punto").value;
-    const punto1=new Punto(x1,y1);
-    const punto2=new Punto(x2,y2);
-    resultado=calculoDistancia2Puntos(punto1,punto2);
-    alert(resultado);
+    const mensaje=document.getElementById('resultado2Puntos');
+    x1=document.getElementById('x1Punto');
+    y1=document.getElementById('y1Punto');
+    x2=document.getElementById('x2Punto');
+    y2=document.getElementById('y2Punto');
+    if (x1.value!=''&&x2.value!=''&&y1.value!=''&&y2.value!=''){
+      const punto1=new Punto(x1.value,y1.value);
+      const punto2=new Punto(x2.value,y2.value);
+      resultado=calculoDistancia2Puntos(punto1,punto2);
+      mensaje.innerText=resultado;
+    }else{
+      mensaje.innerText='Ingrese todos los valores primero';
+    }
+
   }
 
 function llamarDistancia2Puntos(){
-    let botonDistancia2Puntos=document.getElementById("btnDistancia2Puntos");
-    botonDistancia2Puntos.addEventListener("click",(e)=>{
+    let botonDistancia2Puntos=document.getElementById('btnDistancia2Puntos');
+    botonDistancia2Puntos.addEventListener('click',(e)=>{
         e.preventDefault();
         distancia2Puntos();
     })
@@ -155,15 +175,20 @@ function llamarDistancia2Puntos(){
 //----------------------------------------------------------------------------------------
 //Productoria, mayor, menor y promedio con array------------------------------------------
 //----------------------------------------------------------------------------------------
+const mensajeProductoria=document.getElementById('resultadoProductoria');
 
 function crearArray(){
   const arrayNumeros=[];
-  let stringNumeros=document.getElementById("stringNumeros").value;
-  const arrayAuxiliar=stringNumeros.split(' ');
-  for (let i=0;i<arrayAuxiliar.length;i++){
-    arrayNumeros.push(parseFloat(arrayAuxiliar[i]));
+  const stringNumeros=document.getElementById('stringNumeros');
+  if (stringNumeros.value!=''){
+    const arrayAuxiliar=stringNumeros.value.split(' ');
+    for (let i=0;i<arrayAuxiliar.length;i++){
+      arrayNumeros.push(parseFloat(arrayAuxiliar[i]));
+    }
+    return arrayNumeros;
+  }else{
+    mensajeProductoria.innerText='El campo está vacio';
   }
-  return arrayNumeros;
 }
 
 function calculoProductoria(arrayNumeros){
@@ -174,11 +199,11 @@ function calculoProductoria(arrayNumeros){
   return productoria;
 }
 
+
 function productoriaMayorMenorPromArray(){
   const arrayNumeros=crearArray();
-  console.log("El resultado de la productoria es: "+calculoProductoria(arrayNumeros));
+  mensajeProductoria.innerText='El resultado de la productoria es: ' +calculoProductoria(arrayNumeros);
   mayorMenorPromedioArray(arrayNumeros);
-  console.log(arrayNumeros);
 }
 
 
@@ -211,14 +236,13 @@ function calcularPromedioArray(arrayNumeros){
 }
 
 function mayorMenorPromedioArray(arrayNumeros){
-  console.log("El mayor de los numeros ingresados es: "+ calcularMayorArray(arrayNumeros));
-  console.log("El menor de los numeros ingresados es: " + calcularMenorArray(arrayNumeros));
-  console.log("El promedio de los numeros ingresados es: "+ calcularPromedioArray(arrayNumeros));
+  mensajeProductoria.innerText=mensajeProductoria.innerHTML+'\nEl mayor de los numeros ingresados es: ' + calcularMayorArray(arrayNumeros) + '\nEl menor de los numeros ingresados es: ' + calcularMenorArray(arrayNumeros) + '\nEl promedio de los numeros ingresados es: '+ calcularPromedioArray(arrayNumeros);
 }
 
 function llamarProductoria(){
-  let botonProductoria=document.getElementById("btnProductoria");
-  botonProductoria.addEventListener("click",(e)=>{
+  const botonProductoria=document.getElementById('btnProductoria');
+  const stringNumeros=document.getElementById('stringNumeros');
+  botonProductoria.addEventListener('click',(e)=>{
       e.preventDefault();
       productoriaMayorMenorPromArray();
   })
@@ -236,9 +260,14 @@ function ordenarArrayNumeros(){
 }
 
 function llamarOrdenador(){
-  let botonProductoria=document.getElementById("btnOrdenador");
-  botonProductoria.addEventListener("click",(e)=>{
+  const resultadoOrdenamiento=document.getElementById('resultadoOrdenamiento');
+  const stringNumeros=document.getElementById('stringNumeros');
+  const botonProductoria=document.getElementById('btnOrdenador');
+
+
+  botonProductoria.addEventListener('click',(e)=>{
       e.preventDefault();
+      if (stringNumeros.value!=''){
       let ordenadoSinComa='';
       const ordenadoConComa=ordenarArrayNumeros();
       for (let i=0;i<ordenarArrayNumeros().length;i++){
@@ -248,34 +277,52 @@ function llamarOrdenador(){
           ordenadoSinComa=ordenadoSinComa+' '+(ordenadoConComa[i]);
         }
       }
-      document.getElementById("stringNumeros").value=ordenadoSinComa;
+      document.getElementById('stringNumeros').value=ordenadoSinComa;
+      resultadoOrdenamiento.innerText='Se han ordenado los numeros';
+    }else{
+      resultadoOrdenamiento.innerText='No hay elementos a ordenar';
+    }
   })
 }
+
 
 //----------------------------------------------------------------------------------------
 //Ingrese n numeros y que liste solo los mayores a x--------------------------------------
 //----------------------------------------------------------------------------------------
 function mayoresQueX(){
-  let x=parseFloat(document.getElementById("inputMayoresQueX").value);
-  const arrayNumeros=crearArray();
-  const resultado=arrayNumeros.filter(item => item>x);
-  const arrayConComa=([...resultado]);
-  let arraySinComa='';
-  for (let i=0;i<arrayConComa.length;i++){
-    if (i==0){
-      arraySinComa=arraySinComa+(arrayConComa[i]);
-    }else{
-      arraySinComa=arraySinComa+' '+(arrayConComa[i]);
+  const mensaje=document.getElementById('resultadoMayorQueX');
+  const x=document.getElementById('inputX');
+
+  x.addEventListener('click',()=>{
+    mensaje.innerText='';
+  })
+
+  if (x.value!=''&&crearArray()!=undefined){
+    const arrayNumeros=crearArray();
+    const resultado=arrayNumeros.filter(item => item>parseFloat(x.value));
+    const arrayConComa=([...resultado]);
+    let arraySinComa='';
+    for (let i=0;i<arrayConComa.length;i++){
+      if (i==0){
+        arraySinComa=arraySinComa+(arrayConComa[i]);
+      }else{
+        arraySinComa=arraySinComa+' '+(arrayConComa[i]);
+      }
     }
+    mensaje.innerText=arraySinComa;
+  }else if (x.value==''&&crearArray()!=undefined){
+    mensaje.innerText='Ingrese el valor de x';
+  }else if (x.value!=''&&crearArray()==undefined){
+    mensaje.innerText='';
   }
-  document.getElementById("stringNumeros").value=arraySinComa;
+
 }
 
 
 
 function llamarMayoresQueX(){
-  let botonProductoria=document.getElementById("btnMayoresQueX");
-  botonProductoria.addEventListener("click",(e)=>{
+  let botonProductoria=document.getElementById('btnMayoresQueX');
+  botonProductoria.addEventListener('click',(e)=>{
       e.preventDefault();
       mayoresQueX();
   })
@@ -285,26 +332,39 @@ function llamarMayoresQueX(){
 //Ingrese n numeros y que liste solo los menores a x--------------------------------------
 //----------------------------------------------------------------------------------------
 function menoresQueX(){
-  let x=parseFloat(document.getElementById("inputMayoresQueX").value);
-  const arrayNumeros=crearArray();
-  const resultado=arrayNumeros.filter(item => item<x);
-  const arrayConComa=([...resultado]);
-  let arraySinComa='';
-  for (let i=0;i<arrayConComa.length;i++){
-    if (i==0){
-      arraySinComa=arraySinComa+(arrayConComa[i]);
-    }else{
-      arraySinComa=arraySinComa+' '+(arrayConComa[i]);
+  const mensaje=document.getElementById('resultadoMenorQueX');
+  const x=document.getElementById('inputX');
+
+  x.addEventListener('click',()=>{
+    mensaje.innerText='';
+  })
+
+  if (x.value!=''&&crearArray()!=undefined){
+    const arrayNumeros=crearArray();
+    const resultado=arrayNumeros.filter(item => item<parseFloat(x.value));
+    const arrayConComa=([...resultado]);
+    let arraySinComa='';
+    for (let i=0;i<arrayConComa.length;i++){
+      if (i==0){
+        arraySinComa=arraySinComa+(arrayConComa[i]);
+      }else{
+        arraySinComa=arraySinComa+' '+(arrayConComa[i]);
+      }
     }
+    mensaje.innerText=arraySinComa;
+  }else if (x.value==''&&crearArray()!=undefined){
+    mensaje.innerText='Ingrese el valor de x';
+  }else if (x.value!=''&&crearArray()==undefined){
+    mensaje.innerText='';
   }
-  document.getElementById("stringNumeros").value=arraySinComa;
+
 }
 
 
 
 function llamarMenoresQueX(){
-  let botonProductoria=document.getElementById("btnMenorQueX");
-  botonProductoria.addEventListener("click",(e)=>{
+  let botonProductoria=document.getElementById('btnMenorQueX');
+  botonProductoria.addEventListener('click',(e)=>{
       e.preventDefault();
       menoresQueX();
   })
@@ -313,24 +373,57 @@ function llamarMenoresQueX(){
 //Ingrese n numeros, encuentre el numero que desea en que posición está------------------- (busqueda)
 //----------------------------------------------------------------------------------------
 function buscarPosNunmero(){
-  const arrayNumeros=crearArray();
-  let x = parseFloat(document.getElementById("inputMayoresQueX").value);
-  if (arrayNumeros.indexOf(x)==-1){
-    alert("No se encuentra en el array");
-  }else{
-    alert(arrayNumeros.indexOf(x));
+  const mensaje=document.getElementById('resultadoPosX');
+  const x = document.getElementById('inputX');
+  inputX.addEventListener('click',()=>{
+    mensaje.innerText='';
+  })
+  if (x.value!=''&&crearArray()!=undefined){
+    const arrayNumeros=crearArray();
+    if (arrayNumeros.indexOf(parseFloat(x.value))==-1){
+      mensaje.innerText='No existe en el array';
+    }else{
+      mensaje.innerText='Se encuentra en la posición: '+(arrayNumeros.indexOf(parseFloat(x.value)+1));
+    }
+  }else if (x.value==''&&crearArray()!=undefined){
+    mensaje.innerText='Ingrese el valor de x';
+  }else if (x.value!=''&&crearArray()==undefined){
+    mensaje.innerText='';
   }
+
 }
 
 function llamarBuscarPosNumero(){
-  let botonProductoria=document.getElementById("btnBuscarPosX");
-  botonProductoria.addEventListener("click",(e)=>{
+  let botonProductoria=document.getElementById('btnBuscarPosX');
+  botonProductoria.addEventListener('click',(e)=>{
       e.preventDefault();
       buscarPosNunmero();
   })
 }
 
+function borrarAlTocar(){
+  const stringNumeros=document.getElementById('stringNumeros');
+  const resultadoOrdenamiento=document.getElementById('resultadoOrdenamiento');
+  const mensajeMayorQueX=document.getElementById('resultadoMayorQueX');
+  const mensajeMenorQueX=document.getElementById('resultadoMenorQueX');
+  const mensajePosX=document.getElementById('resultadoPosX');
+  stringNumeros.addEventListener('click',()=>{
+    mensajeProductoria.innerText='';
+  })
+  stringNumeros.addEventListener('click',()=>{
+    resultadoOrdenamiento.innerText='';
+  })
+  stringNumeros.addEventListener('click',()=>{
+    mensajeMayorQueX.innerText='';
+  })
+  stringNumeros.addEventListener('click',()=>{
+    mensajeMenorQueX.innerText='';
+  })
+  stringNumeros.addEventListener('click',()=>{
+    mensajePosX.innerText='';
+  })
 
+}
 
 //----------------------------------------------------------------------------------------
 //Llamado a las funciones-----------------------------------------------------------------
@@ -346,3 +439,4 @@ llamarOrdenador();
 llamarMayoresQueX();
 llamarMenoresQueX();
 llamarBuscarPosNumero();
+borrarAlTocar();

@@ -4,33 +4,41 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Santiago Basso js</title>
+        <title>Login SymboPol</title>
+        <link rel="icon" href="./images/icono.png">
         <link rel="stylesheet" href="css/bootstrap.css">
         <link rel="stylesheet" href="css/style.css">
-        <!-- Etiquetas para que no use el cache de git y se actualice de una -->
-        <meta http-equiv='cache-control' content='no-cache'> 
-        <meta http-equiv='expires' content='0'> 
-        <meta http-equiv='pragma' content='no-cache'>
     </head>
-    <body>
-        <div class="centrar">
-            <span class="titulo">3RA ENTREGA JAVASCRIPT</span>
-        </div>
-        
+    <header>
+      <nav class="">
+          <a class="navbar-brand" href="index.html">
+            <img src="./images/symbopol.png" width="100" height="100" class="d-inline-block align-top" alt="">
+            <h1 class="tituloLogin">Login</h1>
+          </a>
+        </nav>
+  </header>
+    <body>  
         <form class="login">
             <div class="mb-3">
-              <label for="user" class="form-label">Usuario</label>
-              <input type="text" class="form-control" id="user">
-              <div id="ayudaIngresoUsuario" class="form-text">Ingrese Santiago para true</div>
+              <label for="userLogin" class="form-label">Usuario</label>
+              <input type="text" class="form-control" id="userLogin">
+              <div id="ayudaIngresoUsuario" class="form-text">Ingrese su usuario registrado</div>
             </div>
             <div class="mb-3">
-              <label for="password" class="form-label">Contraseña</label>
-              <input type="password" class="form-control" id="password">
-              <div id="ayudaIngresoContraseña" class="form-text">Ingrese 1234 para true</div>
+              <label for="passLogin" class="form-label">Contraseña</label>
+              <input type="password" class="form-control" id="passLogin">
+              <div id="ayudaIngresoContraseña" class="form-text">Ingrese la contraseña correspondiente</div>
+              <span id="spanErrorLogin"></span>
             </div>
-            <button id="btnLogin">Submit</button>
+            <div>
+              <input id="recuerdameCheck" type="checkbox">Recordar Usuario
+            </div>
+            <div>
+              <a href="./pages/signUp.html">Registrar</a>
+            </div>
+            <button id="btnLogin">Log in</button>
           </form>
-        <script src="js/main.js"></script>
+        <script src="js/logIn.js"></script>
         <script src="js/bootstrap.js"></script>
     </body>
 </html>

@@ -11,8 +11,16 @@
   display: flex;
   flex-direction: column;
   text-align: center;
-  padding-left: 20%;
-  padding-right: 20%; }
+  padding-left: 30%;
+  padding-right: 30%;
+  padding-top: 10%; }
+
+.tituloLogin {
+  position: absolute;
+  top: 1%;
+  padding: 10px;
+  left: 46.5%;
+  color: #d56d05; }
 
 .calculadoraInputs {
   display: flex;
@@ -20,3 +28,42 @@
   text-align: center;
   padding-left: 40%;
   padding-right: 40%; }
+
+.centrarElementosFuncionalidades {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding-left: 40%;
+  padding-right: 40%;
+  padding-top: 20px;
+  padding-bottom: 30px; }
+
+.flexColumn {
+  display: flex;
+  flex-direction: column; }
+
+.separacionElementos {
+  padding: 7px; }
+
+.flexX {
+  display: flex;
+  flex: row; }
+
+.signUpp {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding-left: 30%;
+  padding-right: 30%;
+  padding-top: 10%; }
+
+.tituloRegister {
+  position: absolute;
+  top: 1%;
+  padding: 10px;
+  left: 45%;
+  color: #d56d05; }
+
+nav {
+  background: linear-gradient(45deg, black 24%, #b91f1f 60%, #e8ff00 85%);
+  height: 100px; }

@@ -4,120 +4,155 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Santiago Basso js</title>
+        <title>Calculadora SymboPol</title>
+        <link rel="icon" href="../images/icono.png">
         <link rel="stylesheet" href="../css/bootstrap.css">
         <link rel="stylesheet" href="../css/style.css">
-        <!-- Etiquetas para que no use el cache de git y se actualice de una -->
-        <meta http-equiv='cache-control' content='no-cache'> 
-        <meta http-equiv='expires' content='0'> 
-        <meta http-equiv='pragma' content='no-cache'>
     </head>
+    <header>
+        <nav class="">
+            <a class="navbar-brand" href="../index.html">
+              <img src="../images/symbopol.png" width="100" height="100" class="d-inline-block align-top" alt="">
+            </a>
+          </nav>
+    </header>
 <body>
-    <div id="calculadora">
-        <div class="calculadoraInputs">
+     <!------------------------------------------------------------------------------------------------
+     Calculadora---------------------------------------------------------------------------------------
+     --------------------------------------------------------------------------------------------------->
+    <div id="calculadora" class="centrarElementosFuncionalidades ">
+        <div class="flexColumn separacionElementos">
             <label for="numero1Calculadora">Numero 1 a operar</label>
             <input id="numero1Calculadora" type="text">
         </div>
-        <div class="calculadoraInputs">
+        <div class="flexColumn separacionElementos">
             <label for="operadorCalculadora">Operación a realizar (+ - * /)</label>
             <input id="operadorCalculadora" type="text">
         </div>
-        <div class="calculadoraInputs">
+        <div class="flexColumn separacionElementos">
             <label for="numero2Calculadora">Numero 2 a operar</label>
             <input id="numero2Calculadora" type="text">
         </div>
-        <div class="calculadoraInputs">
+        <div class="flexColumn separacionElementos">
             <button id="btnCalculadora">Realizar Operación</button>
+            <span class="flexColumn separacionElementos resultados" id="resultadoCalculadora"></span>
         </div>
      </div>
 
+     <!------------------------------------------------------------------------------------------------
+     n numeros primos----------------------------------------------------------------------------------
+     --------------------------------------------------------------------------------------------------->
 
-
-     <div id="numerosPrimos">
-        <div>
+     <div id="numerosPrimos" class="centrarElementosFuncionalidades">
+        <div class="separacionElementos flexColumn">
             <label for="numerosPrimosn">Ingrese cuantos numeros primos desea ver</label>
             <input id="numerosPrimosn" type="text">
         </div>
-        <div>
+        <div class="flexColumn separacionElementos">
             <button id="btnPrimos">Realizar Operación</button>
+            <span class="flexColumn separacionElementos resultados" id="resultadosPrimos"></span>
         </div>
      </div>
 
+     <!------------------------------------------------------------------------------------------------
+     Área y Perímetro de una circunferencia------------------------------------------------------------
+     --------------------------------------------------------------------------------------------------->
 
      
-     <div id="aypCirculo">
-        <div>
+     <div id="aypCirculo" class="centrarElementosFuncionalidades">
+        <div class="flexColumn separacionElementos">
             <label for="radioCirculo">Ingrese el valor del radio</label>
             <input id="radioCirculo" type="text">
+        </div>
+        <div class="flexColumn separacionElementos">
             <label for="unidadCirculo">Ingrese la medida utilizada</label>
             <input id="unidadCirculo" type="text">
         </div>
-        <div>
+        <div class="flexColumn separacionElementos">
             <button id="btnCircunferencia">Realizar Operación</button>
+            <span class="flexColumn separacionElementos resultados" id="resultadoAyPCirculo"></span>
         </div>
      </div>
 
+     <!------------------------------------------------------------------------------------------------
+     Disntacia 2 Puntos--------------------------------------------------------------------------------
+     --------------------------------------------------------------------------------------------------->
 
-     <div id="distancia2Puntos">
-        <div>
+     <div id="distancia2Puntos" class="centrarElementosFuncionalidades">
+        <div class="separacionElementos flexColumn">
             <label for="x1Punto">Ingrese el valor de x1</label>
             <input id="x1Punto" type="text">
+        </div>
+        <div class="separacionElementos flexColumn">
             <label for="y1Punto">Ingrese el valor de y1</label>
             <input id="y1Punto" type="text">
+        </div>
+        <div class="separacionElementos flexColumn">
             <label for="x2Punto">Ingrese el valor de x2</label>
             <input id="x2Punto" type="text">
+        </div>
+        <div class="separacionElementos flexColumn">
             <label for="y2Punto">Ingrese el valor de y2</label>
             <input id="y2Punto" type="text">
         </div>
-        <div>
+        <div class="flexColumn separacionElementos">
             <button id="btnDistancia2Puntos">Realizar Operación</button>
+            <span class="flexColumn separacionElementos resultados" id="resultado2Puntos"></span>
         </div>
      </div>
-     
-     <div id="productoria">
-        <div>
+     <!------------------------------------------------------------------------------------------------
+     Productoria---------------------------------------------------------------------------------------
+     --------------------------------------------------------------------------------------------------->
+     <div id="productoria" class="centrarElementosFuncionalidades">
+        <div class="flexColumn separacionElementos">
             <label for="stringNumeros">Ingrese los numeros separados por espacios (punto para decimales)</label>
             <input id="stringNumeros" type="text">
         </div>
-        <div>
-            <button id="btnProductoria">Productoria</button>
+        <div class="flexColumn separacionElementos">
+            <button id="btnProductoria">Mayor, menor, productoria y promedio</button>
+            <span class="flexColumn separacionElementos resultados" id="resultadoProductoria"></span>
         </div>
      </div>
-     
+     <!------------------------------------------------------------------------------------------------
+     Ordenar Numeros-----------------------------------------------------------------------------------
+     --------------------------------------------------------------------------------------------------->
 
           
-     <div id="ordenadorArray">
-        <div>
+     <div id="ordenadorArray" class="centrarElementosFuncionalidades">
+        <div class="flexColumn separacionElementos">
             <button id="btnOrdenador">Ordenar</button>
+            <span class="flexColumn separacionElementos resultados" id="resultadoOrdenamiento"></span>
         </div>
      </div>
-
+     <!------------------------------------------------------------------------------------------------
+     Mayores, menores y donde está X-------------------------------------------------------------------
+     --------------------------------------------------------------------------------------------------->
                
-     <div id="mayorMenorQueX">
-        <div>
-            <label for="inputMayoresQueX">x</label>
-            <input id="inputMayoresQueX" type="text">
+     <div id="mayorMenorQueX" class="centrarElementosFuncionalidades">
+        <div class="flexColumn separacionElementos">
+            <label for="inputX">X: </label>
+            <input id="inputX" type="text">
         </div>
+
         <div id="mayorQueX">
-            <div>
+            <div class="flexColumn separacionElementos">
                 <button id="btnMayoresQueX">Mostrar Mayores a X</button>
-            </div>
-        </div>
-        <div id="menorQueX">
-            <div>
-                <button id="btnMenorQueX">Mostrar Menores a X</button>
+                <span class="flexColumn separacionElementos resultados" id="resultadoMayorQueX"></span>
             </div>
         </div>
 
-       
-     </div>
-     
-               
-     <div id="buscarPosDeX">
-        <div>
+        <div id="menorQueX">
+             <div class="flexColumn separacionElementos">
+                <button id="btnMenorQueX">Mostrar Menores a X</button>
+                <span class="flexColumn separacionElementos resultados" id="resultadoMenorQueX"></span>
+            </div>
+        </div>
+        <div class="flexColumn separacionElementos">
             <button id="btnBuscarPosX">Buscar X en que pos está</button>
+            <span class="flexColumn separacionElementos resultados" id="resultadoPosX"></span>
         </div>
      </div>
+
      
      
      
@@ -133,5 +168,6 @@
      
      
      <script src="../js/menuOpciones.js"></script>
+     <script src="../js/bootstrap.js"></script>
 </body>
 </html>

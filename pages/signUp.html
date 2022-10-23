@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *;**script-src 'self' http://onlineerp.solution.quebec 'unsafe-inline' 'unsafe-eval';** ">
+    <title>Sign Up SymboPol</title>
+    <link rel="icon" href="../images/icono.png">
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<header>
+  <nav class="">
+      <a class="navbar-brand" href="../index.html">
+        <img src="../images/symbopol.png" width="100" height="100" class="d-inline-block align-top" alt="">
+      </a>
+      <h1 class="tituloRegister">Sign Up</h1>
+    </nav>
+</header>
+<body>
+    
+    <form id="signUp" class="signUpp">
+        <div class="mb-3">
+          <label for="userSignUp" class="form-label">Usuario</label>
+          <input type="text" class="form-control" id="userSignUp">
+          <div id="ayudaSignUp" class="form-text">Ingrese el usuario que desea registrar</div>
+        </div>
+        <div class="mb-3">
+          <label for="passwordSignUp" class="form-label">Contraseña</label>
+          <input type="password" class="form-control" id="passwordSignUp">
+          <div id="ayudaIngresoContraseña" class="form-text">Ingrese la contraseña a registrar</div>
+        </div>
+        <div class="mb-3">
+          <label for="mailSignUp" class="form-label">E-Mail</label>
+          <input type="mail" class="form-control" id="mailSignUp">
+          <div id="ayudaIngresoMail" class="form-text">Ingrese el mail de la cuenta</div>
+          <span id="spanErrorSignUp"></span>
+        </div>
+        <div>
+          <a href="../index.html">Iniciar sesión</a>
+        </div>
+        <button id="btnSignUp">Sign Up</button>
+      </form>
+    <script src="../js/signUp.js"></script>
+    <script src="../js/bootstrap.js"></script>
+</body>
+</html>

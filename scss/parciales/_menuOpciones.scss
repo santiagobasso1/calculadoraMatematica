@@ -5,3 +5,29 @@
     padding-left: 40%;
     padding-right: 40%;
 }
+
+.centrarElementosFuncionalidades{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding-left: 40%;
+    padding-right: 40%;
+    padding-top: 20px;
+    padding-bottom: 30px;
+}
+
+.flexColumn{
+    display: flex;
+    flex-direction: column;
+}
+
+.separacionElementos{
+    padding: 7px;
+}
+
+.flexX{
+    display: flex;
+    flex: row;
+}
+
+
