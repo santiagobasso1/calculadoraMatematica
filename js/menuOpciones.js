@@ -383,12 +383,10 @@ function buscarPosNunmero(){
     if (arrayNumeros.indexOf(parseFloat(x.value))==-1){
       mensaje.innerText='No existe en el array';
     }else{
-      mensaje.innerText='Se encuentra en la posición: '+(arrayNumeros.indexOf(parseFloat(x.value)+1));
+      mensaje.innerText='Se encuentra en la posición: '+(arrayNumeros.indexOf(parseFloat(x.value))+1);
     }
   }else if (x.value==''&&crearArray()!=undefined){
     mensaje.innerText='Ingrese el valor de x';
-  }else if (x.value!=''&&crearArray()==undefined){
-    mensaje.innerText='';
   }
 
 }
