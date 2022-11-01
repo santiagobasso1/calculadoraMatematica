@@ -23,16 +23,29 @@ function iniciarSesion(usuarios){
     let encontrado=usuarios.find((usuario)=>{
         return usuario.user==user.value&&usuario.pass==pass.value
     });
-    console.log(encontrado);
     if (encontrado){
-        window.location.href='../calculadoraMatematica/pages/menuOpciones.html';
+        Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: 'Has iniciado sesión',
+            showConfirmButton: false,
+            timer: 1500
+          });
+          setTimeout(()=>{
+            window.location.href='../pages/menuOpciones.html';
+        },1500)
     }else{
-        mensaje.innerText=('Usuario o contraseña incorrectos');
+        Swal.fire({
+            position: 'top-end',
+            icon: 'error',
+            title: 'Usuario o contraseña incorrectos',
+            showConfirmButton: false,
+            timer: 1500
+          })
     }
 }
 
 function recuerdame(){
-    // checkbox.setAttribute('checked', 'checked');
     if (checkbox.checked){
         localStorage.setItem('recuerdame',JSON.stringify(user.value));
         localStorage.setItem('check',JSON.stringify(checkbox.value))

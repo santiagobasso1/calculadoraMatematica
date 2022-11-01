@@ -400,11 +400,72 @@ function llamarBuscarPosNumero(){
 }
 
 function borrarAlTocar(){
+  //CALCULADORA
+  const numero1Calculadora=document.getElementById('numero1Calculadora');
+  const operadorCalculadora=document.getElementById('operadorCalculadora');
+  const numero2Calculadora=document.getElementById('numero2Calculadora');
+  //NUMEROS PRIMOS
+  const inputPrimos=document.getElementById('numerosPrimosn');
+  const mensajeResultadoPrimos=document.getElementById('resultadosPrimos');
+  //AyP DE UN CIRCULO
+  const inputCirculoRadio=document.getElementById('radioCirculo');
+  const inputCirculoMedida=document.getElementById('unidadCirculo');
+  const mensajeCirculo=document.getElementById('resultadoAyPCirculo');
+  //DISTANCIA 2 PUNTOS
+  const inputDosPuntosX1=document.getElementById('x1Punto');
+  const inputDosPuntosY1=document.getElementById('y1Punto');
+  const inputDosPuntosX2=document.getElementById('x2Punto');
+  const inputDosPuntosY2=document.getElementById('y2Punto');
+  const mensaje2Puntos=document.getElementById('resultado2Puntos');
+
+  //MAYOR,MENOR,PROMEDIO,POS
+  const mensajeResultadoCalculadora=document.getElementById('resultadoCalculadora');
   const stringNumeros=document.getElementById('stringNumeros');
   const resultadoOrdenamiento=document.getElementById('resultadoOrdenamiento');
   const mensajeMayorQueX=document.getElementById('resultadoMayorQueX');
   const mensajeMenorQueX=document.getElementById('resultadoMenorQueX');
   const mensajePosX=document.getElementById('resultadoPosX');
+
+  //EVENT LISTENERS
+  //CALCULADORA
+  numero1Calculadora.addEventListener('click',()=>{
+    mensajeResultadoCalculadora.innerText='';
+  })
+  operadorCalculadora.addEventListener('click',()=>{
+    mensajeResultadoCalculadora.innerText='';
+  })
+  numero2Calculadora.addEventListener('click',()=>{
+    mensajeResultadoCalculadora.innerText='';
+  })
+
+  //NUMEROS PRIMOS
+  inputPrimos.addEventListener('click',()=>{
+    mensajeResultadoPrimos.innerText='';
+  })
+
+  //AyP DE UN CIRCULO
+  inputCirculoRadio.addEventListener('click',()=>{
+    mensajeCirculo.innerText='';
+  })
+  inputCirculoMedida.addEventListener('click',()=>{
+    mensajeCirculo.innerText='';
+  })
+
+  //DISTANCIA 2 PUNTOS
+  inputDosPuntosX1.addEventListener('click',()=>{
+    mensaje2Puntos.innerText='';
+  })
+  inputDosPuntosY1.addEventListener('click',()=>{
+    mensaje2Puntos.innerText='';
+  })
+  inputDosPuntosX2.addEventListener('click',()=>{
+    mensaje2Puntos.innerText='';
+  })
+  inputDosPuntosY2.addEventListener('click',()=>{
+    mensaje2Puntos.innerText='';
+  })
+
+  //MAYOR,MENOR,PROMEDIO,POS
   stringNumeros.addEventListener('click',()=>{
     mensajeProductoria.innerText='';
   })

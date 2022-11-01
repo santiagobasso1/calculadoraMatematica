@@ -61,17 +61,41 @@ pass.addEventListener('click',()=>{
 btnRegistro.addEventListener('click',(e)=>{
     e.preventDefault();
     if (user.value==''){
-        mensaje.innerText='Debe ingresar un usuario';
+        Swal.fire({
+            position: 'top-end',
+            icon: 'warning',
+            title: 'Debe ingresar un usuario',
+            showConfirmButton: false,
+            timer: 1500
+          });
     }else if (pass.value==''){
 
-        mensaje.innerText='Debe ingresar una contraseña';
+        Swal.fire({
+            position: 'top-end',
+            icon: 'warning',
+            title: 'Debe ingresar una contraseña',
+            showConfirmButton: false,
+            timer: 1500
+          });
     }else if ((email.value=='')){
-        mensaje.innerText='Debe ingresar un email';
+        Swal.fire({
+            position: 'top-end',
+            icon: 'warning',
+            title: 'Debe ingresar un mail',
+            showConfirmButton: false,
+            timer: 1500
+          });
     }else{
     let nuevoUsuario=new Usuario(user.value, pass.value, email.value);
     guardarUsuario(nuevoUsuario);
     guardarEnStorage(usuarios);
-    mensaje.innerText='Agregado Exitosamente';
+    Swal.fire({
+        position: 'top-end',
+        icon: 'success',
+        title: 'Usuario registrado correctamente',
+        showConfirmButton: false,
+        timer: 1500
+      });
     limpiarCampos();
     }
 
