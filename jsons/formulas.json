@@ -84,7 +84,7 @@
         "boton":"btnFormulasProductosNotables",
         "nombre":"Productos Notables",
         "imagen":"../images/9.PNG",
-        "descripcion":"Productos Notables",
+        "descripcion":"",
         "alt":"imgNotables",
         "alto":"500",
         "ancho":"800"
@@ -94,7 +94,7 @@
         "boton":"btnFormulasLogaritmos",
         "nombre":"Propiedades de los Logaritmos",
         "imagen":"../images/10.PNG",
-        "descripcion":"Propiedades logaritmicas",
+        "descripcion":"",
         "alt":"imgLogaritmicas",
         "alto":"500",
         "ancho":"800"

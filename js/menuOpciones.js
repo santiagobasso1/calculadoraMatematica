@@ -14,10 +14,10 @@ function calculadoraControlada(){
         mensaje.innerText='No está definida la división por 0';
       }
       else{
-        if (operador.value=='/'||operador.value=='*'||operador.value=='+'||operador.value=='-'){
+        if ((operador.value=='/'||operador.value=='*'||operador.value=='+'||operador.value=='-')&&(!isNaN(num1.value))&&(!isNaN(num2.value))){
         mensaje.innerText='El valor de su operación es: '+calculadora(parseFloat(num1.value),parseFloat(num2.value),operador.value);
         }else{
-          mensaje.innerText='El operador no es valido';
+          mensaje.innerText='Uno de los campos no es valido';
         }
       }
     }else{
@@ -89,14 +89,23 @@ function listarNumerosPrimos(n){
 function numerosPrimos(){
     const mensaje=document.getElementById('resultadosPrimos');
     let inputPrimos = document.getElementById('numerosPrimosn');
-    if (inputPrimos.value!=''){
-      let n=parseInt(inputPrimos.value);
-      isNaN(n) ? (
-        mensaje.innerText='Ingrese un valor numerico'
-      ):(listarNumerosPrimos(n));
-    }else{
-      mensaje.innerText='Ingrese un valor valido';
-    }
+    let n=0;
+
+inputPrimos.value!='' ? (
+  n=parseInt(inputPrimos.value),
+  !isNaN(n) ? (
+    n>0 ? (
+      listarNumerosPrimos(n)
+    ):(
+      mensaje.innerText='El valor debe ser mayor a 0'
+      )
+  ):(
+    mensaje.innerText='Ingrese un valor numerico'
+  )
+):(
+  mensaje.innerText='Ingrese un valor valido'
+)
+
 }
 
 function llamarNumerosPrimos(){

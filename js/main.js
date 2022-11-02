@@ -64,47 +64,5 @@ function iniciarPrograma(){
 }
 
 
-//----------------------------------------------------------------------------------------
-//Menu------------------------------------------------------------------------------------
-//----------------------------------------------------------------------------------------
-
-function menu(){
-  let mensajeMenu=("Ingrese la opcion que desea \n 1-Calculadora de 2 numeros \n 2-Cantidad n de numeros primos \n 3-Area y perímetro de un circulo \n 4-Calcular distancia entre 2 puntos \n 5-Ingresar n numeros y multiplicarlos entre si, saber maximo minimo y promedio de estos \n 6-Ingrese n numeros y mostrar solo los mayores a 10 \n 7-Ingresar n numeros desordenados y que se ordenen \n 8-Ingrese n numeros y busque la posición de uno específico \n 0-Para salir esta ventana");
-  let opcion = prompt(mensajeMenu);
-  //Repetimos hasta que se ingresa "ESC"
-  while(opcion != "0" ){
-    switch (opcion) {
-        case "1":
-              calculadoraControlada();
-              break;
-          case "2":
-              numerosPrimos();
-              break;
-          case "3":
-            areaYPerimetroCirculo();
-            break;
-          case "4":
-            distancia2Puntos();
-            break;    
-          case "5":
-            productoriaMayorMenorPromArray();
-            break;  
-          case "6":
-            mayoresQueX();
-            break;  
-          case "7":
-            ordenarArrayNumeros();
-            break;  
-          case "8":
-            buscarPosNunmero();
-            break; 
-        default:
-            alert("Ingrese una opción valida")
-            break;
-    }
-    opcion = prompt(mensajeMenu);
-  }
-  window.close();
-}
 
 iniciarPrograma();
