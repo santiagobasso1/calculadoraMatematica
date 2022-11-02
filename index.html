@@ -9,37 +9,40 @@
         <link rel="stylesheet" href="css/bootstrap.css">
         <link rel="stylesheet" href="css/style.css">
     </head>
-    <header>
-      <nav class="">
-          <a class="navbar-brand" href="index.html">
-            <img src="./images/symbopol.png" width="100" height="100" class="d-inline-block align-top" alt="">
-            <h1 class="tituloLogin">Login</h1>
-          </a>
-        </nav>
-  </header>
-    <body>  
-        <form class="login">
-            <div class="mb-3">
-              <label for="userLogin" class="form-label">Usuario</label>
-              <input type="text" class="form-control" id="userLogin">
-              <div id="ayudaIngresoUsuario" class="form-text">Ingrese su usuario registrado</div>
-            </div>
-            <div class="mb-3">
-              <label for="passLogin" class="form-label">Contraseña</label>
-              <input type="password" class="form-control" id="passLogin">
-              <div id="ayudaIngresoContraseña" class="form-text">Ingrese la contraseña correspondiente</div>
-              <span id="spanErrorLogin"></span>
-            </div>
-            <div>
-              <input id="recuerdameCheck" type="checkbox">Recordar Usuario
-            </div>
-            <div>
-              <a href="./pages/signUp.html">Registrar</a>
-            </div>
-            <button id="btnLogin">Log in</button>
-          </form>
+
+  <body>  
+      <header>
+        <nav class="">
+            <a class="navbar-brand" href="index.html">
+              <img src="./images/symbopol.png" width="100" height="100" class="d-inline-block align-top" alt="">
+              <h1 class="tituloLogin">Login</h1>
+            </a>
+          </nav>
+    </header>
+    <main>
+      <form class="login">
+        <div class="mb-3">
+          <label for="userLogin" class="form-label">Usuario</label>
+          <input type="text" class="form-control" id="userLogin">
+          <div id="ayudaIngresoUsuario" class="form-text">Ingrese su usuario registrado</div>
+        </div>
+        <div class="mb-3">
+          <label for="passLogin" class="form-label">Contraseña</label>
+          <input type="password" class="form-control" id="passLogin">
+          <div id="ayudaIngresoContraseña" class="form-text">Ingrese la contraseña correspondiente</div>
+          <span id="spanErrorLogin"></span>
+        </div>
+        <div>
+          <input id="recuerdameCheck" type="checkbox">Recordar Usuario
+        </div>
+        <div>
+          <a href="./pages/signUp.html">Registrar</a>
+        </div>
+        <button id="btnLogin">Log in</button>
+      </form>
+    </main>
         <script src="js/logIn.js"></script>
         <script src="js/bootstrap.js"></script>
         <script src="js/sweetalert.min.js"></script>
-    </body>
+  </body>
 </html>

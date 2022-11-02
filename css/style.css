@@ -20,7 +20,7 @@
   top: 1%;
   padding: 10px;
   left: 46.5%;
-  color: #d56d05; }
+  color: white; }
 
 .calculadoraInputs {
   display: flex;
@@ -49,6 +49,18 @@
   display: flex;
   flex: row; }
 
+.botonFormulas {
+  top: 0;
+  right: 0;
+  position: absolute; }
+
+.tituloCalculadora {
+  position: absolute;
+  top: 1%;
+  padding: 10px;
+  left: 43%;
+  color: white; }
+
 .signUpp {
   display: flex;
   flex-direction: column;
@@ -62,8 +74,27 @@
   top: 1%;
   padding: 10px;
   left: 45%;
-  color: #d56d05; }
+  color: white; }
 
 nav {
-  background: linear-gradient(45deg, black 24%, #b91f1f 60%, #e8ff00 85%);
+  background: linear-gradient(90deg, black 15%, #d8e747 37%, #b14a4a 56%, black 85%);
   height: 100px; }
+
+.centrarBotonesFormulas {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding-left: 40%;
+  padding-right: 40%;
+  padding-top: 5px;
+  padding-bottom: 5px; }
+
+.tituloFormulas {
+  position: absolute;
+  top: 1%;
+  padding: 10px;
+  left: 44%;
+  color: white; }
+
+.primerElemento {
+  margin-top: 30px; }

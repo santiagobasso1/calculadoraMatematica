@@ -1,0 +1,101 @@
+[
+    {
+        "id":0,
+        "nombre":"Resolvente",
+        "imagen":"../images/1.PNG",
+        "descripcion":"Ecuación utilizada para resolver polinomios de segundo grado",
+        "alt":"imgResolvente",
+        "alto":"300",
+        "ancho":"400"
+    },
+    {
+        "id":1,
+        "nombre":"Teorema de pitágoras",
+        "imagen":"../images/2.PNG",
+        "descripcion":"Ecuación utilizada para sacar la longitud de la hipotenusa teniendo ambos catetos de un triagnulo",
+        "alt":"imgPitagoras",
+        "alto":"600",
+        "ancho":"200"
+    },
+    {
+        "id":2,
+        "nombre":"Identidad de euler",
+        "imagen":"../images/3.PNG",
+        "descripcion":"Es una igualdad que relaciona de una manera preciosa cinco de los números más importantes y representativos de las matemáticas: 0, 1, e, i y π",
+        "alt":"imgEuler",
+        "alto":"200",
+        "ancho":"400"
+    },
+    {
+        "id":3,
+        "nombre":"Reglas de la aritmética",
+        "imagen":"../images/4.PNG",
+        "descripcion":"3 Reglas de la aritmetica relacionadas a la matematica básica",
+        "alt":"imgAritmetica",
+        "alto":"300",
+        "ancho":"500"
+    },
+    {
+        "id":4,
+        "nombre":"Leyes Exponenciales",
+        "imagen":"../images/5.PNG",
+        "descripcion":"Leyes que ayudan a la resolución de ecuaciones exponenciales",
+        "alt":"imgExponentes",
+        "alto":"500",
+        "ancho":"800"
+    },
+    {
+        "id":5,
+        "nombre":"Operaciones basicas cociente",
+        "imagen":"../images/6.PNG",
+        "descripcion":"Operaciones y transformaciones basicas de los cocientes",
+        "alt":"imgBasicas",
+        "alto":"500",
+        "ancho":"800"
+    },
+    {
+        "id":6,
+        "nombre":"Operaciones radicales",
+        "imagen":"../images/7.PNG",
+        "descripcion":"Operaciones y transformaciones basicas de las raices",
+        "alt":"imgRadicales",
+        "alto":"500",
+        "ancho":"800"
+    },
+    {
+        "id":7,
+        "nombre":"Valor Absoluto",
+        "imagen":"../images/8.PNG",
+        "descripcion":"Propiedades basicas del valor absoluto",
+        "alt":"imgVA",
+        "alto":"500",
+        "ancho":"800"
+    },
+    {
+        "id":8,
+        "nombre":"Productos Notables",
+        "imagen":"../images/9.PNG",
+        "descripcion":"Productos Notables",
+        "alt":"imgNotables",
+        "alto":"500",
+        "ancho":"800"
+    },
+    {
+        "id":9,
+        "nombre":"Propiedades de los Logaritmos",
+        "imagen":"../images/10.PNG",
+        "descripcion":"Propiedades logaritmicas",
+        "alt":"imgLogaritmicas",
+        "alto":"500",
+        "ancho":"800"
+    },
+    {
+        "id":10,
+        "nombre":"Formulas Factorización",
+        "imagen":"../images/11.PNG",
+        "descripcion":"Propiedades utilizadas para factorizar diferentes polinomios",
+        "alt":"imgLogaritmicas",
+        "alto":"500",
+        "ancho":"800"
+    }
+]
