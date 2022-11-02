@@ -5,8 +5,6 @@ email = document.getElementById('mailSignUp'),
 btnRegistro = document.getElementById('btnSignUp'),
 mensaje=document.getElementById('spanErrorSignUp');
 
-
-
 let usuarios;
 
 

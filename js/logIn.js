@@ -20,29 +20,40 @@ pass.addEventListener('click',()=>{
 })
 
 function iniciarSesion(usuarios){
-    let encontrado=usuarios.find((usuario)=>{
-        return usuario.user==user.value&&usuario.pass==pass.value
-    });
-    if (encontrado){
-        Swal.fire({
-            position: 'top-end',
-            icon: 'success',
-            title: 'Has iniciado sesión',
-            showConfirmButton: false,
-            timer: 1500
-          });
-          setTimeout(()=>{
-            window.location.href='../pages/menuOpciones.html';
-        },1500)
+    if (usuarios!=null){
+        let encontrado=usuarios.find((usuario)=>{
+            return usuario.user==user.value&&usuario.pass==pass.value
+        });
+        if (encontrado){
+            Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: 'Has iniciado sesión',
+                showConfirmButton: false,
+                timer: 1500
+              });
+              setTimeout(()=>{
+                window.location.href='../pages/menuOpciones.html';
+            },1500)
+        }else{
+            Swal.fire({
+                position: 'top-end',
+                icon: 'error',
+                title: 'Usuario o contraseña incorrectos',
+                showConfirmButton: false,
+                timer: 1500
+              })
+        }
     }else{
         Swal.fire({
             position: 'top-end',
             icon: 'error',
-            title: 'Usuario o contraseña incorrectos',
+            title: 'No existen usuarios actualmente',
             showConfirmButton: false,
             timer: 1500
-          })
+          }) 
     }
+
 }
 
 function recuerdame(){

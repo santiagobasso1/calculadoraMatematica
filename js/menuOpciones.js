@@ -9,11 +9,16 @@ function calculadoraControlada(){
     let num2=document.getElementById('numero2Calculadora');
     const mensaje=document.getElementById('resultadoCalculadora');
     if (num1.value!=''&&num2.value!=''&&operador!=''){
+
       if (operador.value=='/' && parseFloat(num2.value)==0){
         mensaje.innerText='No está definida la división por 0';
       }
       else{
+        if (operador.value=='/'||operador.value=='*'||operador.value=='+'||operador.value=='-'){
         mensaje.innerText='El valor de su operación es: '+calculadora(parseFloat(num1.value),parseFloat(num2.value),operador.value);
+        }else{
+          mensaje.innerText='El operador no es valido';
+        }
       }
     }else{
         mensaje.innerText='Debe ingresar los 3 valores para operar';
@@ -86,7 +91,9 @@ function numerosPrimos(){
     let inputPrimos = document.getElementById('numerosPrimosn');
     if (inputPrimos.value!=''){
       let n=parseInt(inputPrimos.value);
-      listarNumerosPrimos(n);
+      isNaN(n) ? (
+        mensaje.innerText='Ingrese un valor numerico'
+      ):(listarNumerosPrimos(n));
     }else{
       mensaje.innerText='Ingrese un valor valido';
     }
@@ -152,10 +159,15 @@ function Punto(x,y){
     x2=document.getElementById('x2Punto');
     y2=document.getElementById('y2Punto');
     if (x1.value!=''&&x2.value!=''&&y1.value!=''&&y2.value!=''){
-      const punto1=new Punto(x1.value,y1.value);
-      const punto2=new Punto(x2.value,y2.value);
-      resultado=calculoDistancia2Puntos(punto1,punto2);
-      mensaje.innerText=resultado;
+      if (!isNaN(x1.value)&&!isNaN(x2.value)&&!isNaN(y1.value)&&!isNaN(y2.value)){
+        const punto1=new Punto(x1.value,y1.value);
+        const punto2=new Punto(x2.value,y2.value);
+        resultado=calculoDistancia2Puntos(punto1,punto2);
+        mensaje.innerText=resultado;
+      }else{
+        mensaje.innerText="Todos los valores deben ser numeros";
+      }
+     
     }else{
       mensaje.innerText='Ingrese todos los valores primero';
     }

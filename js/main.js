@@ -107,33 +107,4 @@ function menu(){
   window.close();
 }
 
-//----------------------------------------------------------------------------------------
-//Programa Principal----------------------------------------------------------------------
-//----------------------------------------------------------------------------------------
-// let salida=false;
-// if (login(salida)==true){
-//   menu();
-// }
-
-
-//DOM
-// const div = document.getElementById('1'),
-// ache1=document.getElementsByTagName('h1');
-
-// console.log(ache1[1]);
-
-// ache1[1].innerText='Chorizo';
-
-// div.className='Nombre De la clase a agrewgarle a ese div o elemento que se desee';
-
-
-// botonLogin.addEventListener("click",()=>{
-//   console.log("Chorizo");
-// })
-
-// botonLogin.onclick =()=>{
-//   console.log('chorizo');
-// }
-
-
 iniciarPrograma();
